@@ -1,20 +1,35 @@
-from ..config.searchScope import searchScope as scope
+import pandas as pd
 from .sign_in import sign_in
-### Get Data_fields like Data Explorer 获取所有满足条件的数据字段及其ID
 
-def get_datafields(
+
+SEARCH_SCOPE = {
+    'region': 'USA',
+    'delay': '1',
+    'universe': 'TOP3000',
+    'instrumentType': 'EQUITY'
+}
+
+
+def get_data_fields(
+        dataset_id: str = '',
         session=None,
         search_scope=None,
-        dataset_id: str = '',
         search: str = ''
 ):
-    import pandas as pd
+    """
+    获取所有满足条件的数据字段及其ID
 
+    参数:
+        session: 会话对象session
+        search_scope: 搜索范围
+        dataset_id: 数据集ID
+        search: 搜索关键字
+    """
     if session is None:
         session = sign_in()
 
     if search_scope is None:
-        search_scope = scope
+        search_scope = SEARCH_SCOPE
 
     instrument_type = search_scope['instrumentType']
     region = search_scope['region']

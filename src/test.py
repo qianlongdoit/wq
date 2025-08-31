@@ -1,9 +1,9 @@
 from datetime import datetime
 import os
 import json
-from src.utils.get_datafields import get_datafields
+from src.utils.get_datafields import get_data_fields
 
-data_field=get_datafields(dataset_id='fundamental6')
+data_field=get_data_fields(dataset_id='fundamental6')
 data_field=data_field['id'].values
 
 alpha_list = []

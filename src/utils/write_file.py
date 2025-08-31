@@ -1,6 +1,7 @@
 import os
 import json
 
+
 def write_file(config):
     directory = config['directory']
     file_name = config['file_name']
@@ -16,4 +17,3 @@ def write_file(config):
     with open(file_path, 'w' if not is_append else 'a') as f:
         json.dump(data, f)
         f.write('\n')
-
